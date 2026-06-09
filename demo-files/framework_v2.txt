@@ -1,0 +1,10 @@
+# Internal Security Framework v2
+
+## REQ 4.1.A - Data Residency
+Vendor must ensure all PII is stored and processed exclusively within EU jurisdictions.
+
+## REQ 4.1.B - Encryption at Rest
+All stored data must be encrypted using AES-256 or stronger algorithms.
+
+## REQ 4.2.A - Annual Penetration Testing
+Vendor must conduct and provide results of annual third-party penetration testing.

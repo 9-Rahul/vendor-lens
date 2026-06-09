@@ -1,0 +1,10 @@
+# Acme Corp Vendor Evidence Submission
+
+## Architecture Overview
+Our primary data center facilities located in Frankfurt, Germany, shall serve as the primary processing node for all European client accounts. 
+
+## Encryption Standards
+All production databases and object storage buckets utilize AES-256 encryption at rest, managed via AWS KMS.
+
+## Communication Thread (Oct 12)
+While primary DBs are in Frankfurt, failover backups occasionally sync to US-East-1 during maintenance windows. We are working on a fix.
