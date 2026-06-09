@@ -7,6 +7,9 @@ export function Header() {
       <span className="text-[16px] font-semibold tracking-tight text-[var(--color-on-surface)]">
         VendorLens
       </span>
+      <span className="text-[12px] font-medium text-[var(--color-secondary)] ml-2 border-l border-[var(--color-outline-variant)]/50 pl-3">
+        Read less. Trust more.
+      </span>
     </header>
   );
 }

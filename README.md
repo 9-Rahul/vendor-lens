@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VendorLens
+
+**Verify Vendors in Seconds.**
+
+VendorLens is a professional procurement decision-support workspace that automates the tedious process of reviewing vendor compliance documents. Simply upload your requirements and the vendor's documentation, and VendorLens will instantly highlight exactly what's missing, partial, or fully met.
+
+## Features
+
+- **Instant Document Analysis**: Automatically cross-references vendor documents against your specific security and compliance requirements.
+- **Decision-First Workspace**: Answers four key questions immediately: Can this vendor be approved? What failed? Why? What's next?
+- **AI-Powered Resilience**: Utilizes an automated cascading LLM pipeline (Llama 3.3 70B via Groq with a Gemini 2.5 Flash fallback) to ensure reliable, fast extractions.
+- **Zero-Dependency PDF Export**: Generate clean, professional compliance reports straight from the browser.
 
 ## Getting Started
 
-First, run the development server:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/vendor-lens.git
+   cd vendor-lens
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **Set up Environment Variables:**
+   Create a `.env.local` file in the root directory and add your API keys:
+   ```env
+   GROQ_API_KEY=your_groq_api_key
+   GEMINI_API_KEY=your_gemini_api_key
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+5. **Open the App:**
+   Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Framework**: Next.js 16 (App Router)
+- **Styling**: Tailwind CSS
+- **AI Integration**: Groq SDK (Llama 3.3 70B), Google Generative AI (Gemini 2.5 Flash)
+- **PDF Processing**: `pdf2json` (Server-side extraction)
+- **State Management**: TanStack React Query
