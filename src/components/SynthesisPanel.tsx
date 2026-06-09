@@ -24,6 +24,28 @@ export function SynthesisPanel({ assessment, requirement }: SynthesisPanelProps)
 
   const status = getStatusDisplay();
 
+  // Reset logged state when reqId changes
+  useEffect(() => {
+    setLogged(false);
+  }, [reqId]);
+
+  const flagMutation = useMutation({
+    mutationFn: async () => {
+      return new Promise((resolve) => setTimeout(resolve, 800));
+    },
+    onSuccess: () => {
+      setLogged(true);
+    }
+  });
+
+  const getStatus = () => {
+    if (reqId === "REQ_4_1_B") return { label: "Met Compliance", icon: LuCircleCheck, color: "text-[var(--color-status-met)]", desc: "Encryption standard explicitly met in vendor documentation." };
+    if (reqId === "REQ_4_2_A") return { label: "Missing Evidence", icon: LuCircleX, color: "text-[var(--color-status-missing)]", desc: "No mention of penetration testing frequency or reports." };
+    return { label: "Partial Compliance", icon: LuTriangleAlert, color: "text-[var(--color-tertiary-container)]", desc: "Primary residency requirement met. US-East backup infrastructure introduces compliance risk." };
+  }
+
+  const status = getStatus();
+
   return (
     <div className="w-full lg:w-[45%] flex flex-col gap-4 relative z-40">
       
