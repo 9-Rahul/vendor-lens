@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Courier+Prime&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Courier Prime', ui-monospace, monospace;
+
+  /* Brand tokens */
+  --color-brand:            #0f62fe;
+  --color-brand-hover:      #0353e9;
+  --color-surface:          #f9f9f9;
+  --color-border:           #e5e5e5;
+  --color-border-dashed:    #d4d4d4;
+  --color-text-primary:     #111111;
+  --color-text-secondary:   #555555;
+  --color-text-muted:       #888888;
+  --color-status-met:       #16a34a;
+  --color-status-partial:   #b45309;
+  --color-status-missing:   #dc2626;
+
+  /* Design-system colours (Stitch) */
+  --color-primary:                  #004ccd;
+  --color-on-primary:               #ffffff;
+  --color-primary-container:        #0f62fe;
+  --color-on-primary-container:     #f3f3ff;
+  --color-secondary:                #5f5e5e;
+  --color-on-secondary:             #ffffff;
+  --color-secondary-container:      #e5e2e1;
+  --color-on-secondary-container:   #656464;
+  --color-tertiary:                 #9e3100;
+  --color-on-tertiary:              #ffffff;
+  --color-tertiary-container:       #c84000;
+  --color-on-tertiary-container:    #fff1ed;
+  --color-tertiary-fixed:           #ffdbd0;
+  --color-on-tertiary-fixed:        #390c00;
+  --color-tertiary-fixed-dim:       #ffb59d;
+  --color-on-tertiary-fixed-variant:#832700;
+  --color-error:                    #ba1a1a;
+  --color-on-error:                 #ffffff;
+  --color-error-container:          #ffdad6;
+  --color-on-error-container:       #93000a;
+  --color-surface-dim:              #dadada;
+  --color-surface-bright:           #f9f9f9;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low:    #f4f3f3;
+  --color-surface-container:        #eeeeee;
+  --color-surface-container-high:   #e8e8e8;
+  --color-surface-container-highest:#e2e2e2;
+  --color-surface-variant:          #e2e2e2;
+  --color-on-surface:               #1a1c1c;
+  --color-on-surface-variant:       #424656;
+  --color-outline:                  #737687;
+  --color-outline-variant:          #c3c6d8;
+  --color-inverse-surface:          #2f3131;
+  --color-inverse-on-surface:       #f1f1f1;
+  --color-inverse-primary:          #b4c5ff;
+  --color-surface-tint:             #0052dd;
+
+  /* Border radius */
+  --radius-sm:      0.125rem;
+  --radius-DEFAULT: 0.25rem;
+  --radius-md:      0.375rem;
+  --radius-lg:      0.5rem;
+  --radius-xl:      0.75rem;
+  --radius-organic: 2rem 1rem 3rem 1.5rem;
+}
+
+/* ── Base reset ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  background: #f9f9f9;
+  color: var(--color-on-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Material Symbols utility ────────────────────────────────── */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+/* ── Glass panel ─────────────────────────────────────────────── */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 229, 229, 0.5);
+}
+
+/* ── Organic shadow ──────────────────────────────────────────── */
+.organic-shadow {
+  box-shadow:
+    0 20px 40px -10px rgba(0, 0, 0, 0.06),
+    0 8px 16px -4px rgba(0, 0, 0, 0.03);
+}
+
+/* ── Spin animation for loading ──────────────────────────────── */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spin 1.4s linear infinite; }
+
+/* ── Connector line pulse ────────────────────────────────────── */
+@keyframes dash {
+  from { stroke-dashoffset: 24; }
+  to   { stroke-dashoffset: 0; }
+}
+.connector-animated {
+  animation: dash 1.5s linear infinite;
+  stroke-dasharray: 6 6;
+}
