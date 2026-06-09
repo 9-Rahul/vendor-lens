@@ -25,11 +25,11 @@ export function SynthesisPanel({ assessment, requirement }: SynthesisPanelProps)
   const status = getStatusDisplay();
 
   return (
-    <div className="w-full xl:w-[45%] flex flex-col gap-4 relative z-40">
+    <div className="w-full lg:w-[45%] flex flex-col gap-4 relative z-40">
       
       <div className="bg-white organic-shadow p-4 rounded-xl border border-[var(--color-outline-variant)]/30">
-        <div className="grid grid-cols-2 gap-y-3">
-          <div className="col-span-2 text-[11px] font-bold uppercase tracking-widest text-[var(--color-secondary)] mb-1">
+        <div className="grid grid-cols-4 lg:grid-cols-2 gap-y-3">
+          <div className="col-span-4 lg:col-span-2 text-[11px] font-bold uppercase tracking-widest text-[var(--color-secondary)] mb-1">
             Global Assessment
           </div>
           

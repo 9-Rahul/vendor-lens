@@ -6,10 +6,10 @@ export async function extractTextFromFile(file: File): Promise<string> {
       const PDFParser = (await import("pdf2json")).default;
       
       return new Promise((resolve, reject) => {
-        const pdfParser = new PDFParser(null, 1);
+        const pdfParser = new PDFParser(null, true);
         
-        pdfParser.on("pdfParser_dataError", (errData) => {
-          reject(errData.parserError);
+        pdfParser.on("pdfParser_dataError", (errData: any) => {
+          reject(errData.parserError || errData);
         });
 
         pdfParser.on("pdfParser_dataReady", () => {

@@ -8,7 +8,7 @@ interface EvidenceCanvasProps {
 export function EvidenceCanvas({ requirement }: EvidenceCanvasProps) {
   if (requirement.status === "missing" || requirement.evidence.length === 0) {
     return (
-      <div className="w-full xl:w-[55%] flex flex-col items-center justify-center min-h-[500px]">
+      <div className="w-full lg:w-[55%] flex flex-col items-center justify-center min-h-[300px] sm:min-h-[500px]">
         <div className="text-center max-w-sm">
           <div className="w-12 h-12 rounded-full bg-[var(--color-surface-container)] flex items-center justify-center mx-auto mb-4 border border-[var(--color-outline-variant)]">
             <LuFileSearch className="w-6 h-6 text-[var(--color-secondary)]" />
@@ -35,10 +35,10 @@ export function EvidenceCanvas({ requirement }: EvidenceCanvasProps) {
   }
 
   return (
-    <div className="w-full xl:w-[55%] min-h-[500px] select-none p-4 flex flex-col gap-6 relative">
+    <div className="w-full lg:w-[55%] min-h-[300px] sm:min-h-[500px] select-none p-2 sm:p-4 flex flex-col gap-4 sm:gap-6 relative">
       
       <div
-        className="bg-white organic-shadow p-4 w-72 rounded-xl border border-[var(--color-primary-container)]/20 -rotate-1 hover:rotate-0 transition-transform duration-500 self-start z-20"
+        className="bg-white organic-shadow p-4 w-full max-w-[288px] rounded-xl border border-[var(--color-primary-container)]/20 -rotate-1 hover:rotate-0 transition-transform duration-500 self-start z-20"
       >
         <div className="flex items-center gap-2 mb-2">
           <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary-container)]" />
@@ -54,7 +54,7 @@ export function EvidenceCanvas({ requirement }: EvidenceCanvasProps) {
         </p>
       </div>
 
-      <div className="flex flex-col gap-4 items-end pr-4">
+      <div className="flex flex-col gap-4 items-stretch sm:items-end pr-0 sm:pr-4">
         {requirement.evidence.map((ev, index) => {
           const rotation = index % 2 === 0 ? "rotate-[1.5deg]" : "-rotate-[2deg]";
           const isEmail = ev.type === "email";
@@ -63,7 +63,7 @@ export function EvidenceCanvas({ requirement }: EvidenceCanvasProps) {
             <div
               key={ev.id}
               tabIndex={0}
-              className={`bg-white organic-shadow p-3 rounded-md w-72 transition-all duration-300 group hover:scale-[1.03] hover:z-30 ${rotation} ${
+              className={`bg-white organic-shadow p-3 rounded-md w-full sm:w-72 max-w-full transition-all duration-300 group hover:scale-[1.03] hover:z-30 ${rotation} ${
                 isEmail 
                   ? "bg-[#fafafa] border border-[var(--color-outline-variant)]/30 border-l-[3px] border-l-[var(--color-tertiary-container)]"
                   : "border border-[var(--color-outline-variant)]/40"
