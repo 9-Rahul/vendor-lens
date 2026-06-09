@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { EvidenceCanvas } from "@/components/EvidenceCanvas";
 import { SynthesisPanel } from "@/components/SynthesisPanel";
 import { RequirementList } from "@/components/RequirementList";
+import { ConfirmModal } from "@/components/ConfirmModal";
 import { 
   uploadRequirementsFile, 
   uploadVendorFile, 
@@ -23,6 +24,7 @@ export default function VendorLensApp() {
   const [assessmentData, setAssessmentData] = useState<AssessmentData | null>(null);
   const [errorMsg, setErrorMsg] = useState<string>("");
   const [history, setHistory] = useState<AssessmentData[]>([]);
+  const [showConfirm, setShowConfirm] = useState(false);
 
   useEffect(() => {
     try {
@@ -94,14 +96,17 @@ export default function VendorLensApp() {
   };
 
   const resetApp = () => {
-    if (window.confirm("Are you sure? This will clear your current view.")) {
-      setAppState("upload");
-      setReqFile(null);
-      setVendorFile(null);
-      setAssessmentData(null);
-      setSelectedReqId("");
-      setErrorMsg("");
-    }
+    setShowConfirm(true);
+  };
+
+  const confirmReset = () => {
+    setShowConfirm(false);
+    setAppState("upload");
+    setReqFile(null);
+    setVendorFile(null);
+    setAssessmentData(null);
+    setSelectedReqId("");
+    setErrorMsg("");
   };
 
   const loadPastAssessment = (pastAssessment: AssessmentData) => {
@@ -117,6 +122,17 @@ export default function VendorLensApp() {
   return (
     <div className="flex flex-col h-full w-full bg-white">
       <Header />
+
+      {showConfirm && (
+        <ConfirmModal
+          title="Start a new analysis?"
+          description="This will clear the current assessment. Your past assessments are saved and can be reloaded from the home screen."
+          confirmLabel="Clear & Start Over"
+          cancelLabel="Keep Current"
+          onConfirm={confirmReset}
+          onCancel={() => setShowConfirm(false)}
+        />
+      )}
 
       <main className="flex-1 overflow-y-auto">
         
