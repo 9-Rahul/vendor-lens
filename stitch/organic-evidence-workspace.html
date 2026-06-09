@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VendorLens | Organic Evidence Workspace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Courier+Prime&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "primary-container": "#0f62fe",
+                        "secondary": "#5f5e5e",
+                        "tertiary-container": "#c84000",
+                        "inverse-primary": "#b4c5ff",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "surface-container-low": "#f4f3f3",
+                        "background": "#f9f9f9",
+                        "tertiary-fixed": "#ffdbd0",
+                        "on-tertiary-fixed": "#390c00",
+                        "surface-variant": "#e2e2e2",
+                        "on-surface": "#1a1c1c",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "secondary-container": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#832700",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "on-secondary-fixed-variant": "#474646",
+                        "surface-tint": "#0052dd",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "primary": "#004ccd",
+                        "surface-dim": "#dadada",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-primary-container": "#f3f3ff",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-bright": "#f9f9f9",
+                        "on-primary-fixed-variant": "#003da9",
+                        "on-primary-fixed": "#00174c",
+                        "on-background": "#1a1c1c",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eeeeee",
+                        "tertiary-fixed-dim": "#ffb59d",
+                        "on-surface-variant": "#424656",
+                        "on-secondary-container": "#656464",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e2e2e2",
+                        "tertiary": "#9e3100",
+                        "outline-variant": "#c3c6d8",
+                        "outline": "#737687",
+                        "on-tertiary-container": "#fff1ed",
+                        "inverse-surface": "#2f3131",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem",
+                        "organic": "2rem 1rem 3rem 1.5rem",
+                        "organic-sm": "1rem 0.5rem 1.5rem 0.75rem"
+                    },
+                    "spacing": {
+                        "md": "12px",
+                        "gutter": "16px",
+                        "2xl": "32px",
+                        "xl": "24px",
+                        "sm": "8px",
+                        "margin-mobile": "16px",
+                        "lg": "16px",
+                        "xs": "4px",
+                        "base": "4px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Inter"],
+                        "h1": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h2": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display": ["Inter"],
+                        "mono-label": ["Courier Prime"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h3": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "h1": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "h2": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "display": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "mono-label": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #f9f9f9;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 229, 229, 0.5);
+        }
+        .organic-shadow {
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05), 0 10px 20px -5px rgba(0,0,0,0.02);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface antialiased overflow-x-hidden min-h-screen relative">
+<!-- Background Integration -->
+<div class="fixed inset-0 z-0 pointer-events-none opacity-40">
+<img alt="Background graphic" class="w-full h-full object-cover object-center filter blur-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa_LrfBSOlqeynqRPm8_r286fJ1g39JJQdSN916VY1y1OqZKXaqJJEAS0mYeYUBY7nnO-GyrV14N-gm5jXTTIW95Uw6DuHMfrsFWdZj_VoHrrcGJJESAiilO8W23cNtpWryQFapYNrq705V0B2-lCfvWXB0xc5iaBo3EQXrYdwo_O-R-h7vteBu34Ow_JYiq47yZh4L-55gKP-taCgIKH0p28u0q1DueMJnsyC33Yd173u_FsIZS4Z6JXfM8gKc7u7c6Izk-Nb5hc"/>
+</div>
+<div class="flex h-screen w-full relative z-10">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full py-xl px-md gap-lg bg-surface border-r border-outline-variant/50 docked left-0 h-screen w-[260px] shrink-0">
+<div class="flex items-center gap-3 px-3 mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">policy</span>
+<div>
+<h2 class="font-h2 text-h2 text-on-surface tracking-tight">VendorLens</h2>
+</div>
+</div>
+<div class="flex items-center gap-3 px-3 py-4 mb-6 border-b border-outline-variant/30">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-secondary">person</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Lead Analyst</div>
+<div class="font-label-sm text-label-sm text-secondary">Global Procurement</div>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-2 px-4 rounded flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors mb-6">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">add</span>
+                New Analysis
+            </button>
+<div class="flex flex-col gap-1 flex-grow">
+<a class="flex items-center gap-3 px-3 py-2 rounded text-secondary hover:text-on-surface hover:bg-surface-container-high transition-all duration-300 ease-in-out font-label-md text-label-md opacity-70 hover:opacity-100 translate-x-1 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-secondary hover:text-on-surface hover:bg-surface-container-high transition-all duration-300 ease-in-out font-label-md text-label-md opacity-70 hover:opacity-100 translate-x-1 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[20px]">biotech</span>
+                    Risk Map
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded bg-primary-container/10 text-primary font-h3 border-r-4 border-primary translate-x-1 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+                    Evidence
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-secondary hover:text-on-surface hover:bg-surface-container-high transition-all duration-300 ease-in-out font-label-md text-label-md opacity-70 hover:opacity-100 translate-x-1 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+                    Archive
+                </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded text-secondary hover:text-on-surface hover:bg-surface-container-high transition-all duration-300 ease-in-out font-label-md text-label-md opacity-70 hover:opacity-100 translate-x-1 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                    Settings
+                </a>
+</div>
+<div class="mt-auto border-t border-outline-variant/30 pt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded text-secondary hover:text-on-surface hover:bg-surface-container-high transition-all duration-300 ease-in-out font-label-md text-label-md opacity-70 hover:opacity-100 translate-x-1 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+                    Help Center
+                </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-full overflow-hidden">
+<!-- TopNavBar (Mobile Only) -->
+<nav class="md:hidden flex justify-between items-center px-margin-mobile py-4 w-full bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30">
+<div class="font-display text-h2 tracking-tight text-primary">VendorLens</div>
+<div class="flex gap-4 text-primary">
+<span class="material-symbols-outlined">notifications</span>
+<span class="material-symbols-outlined">menu</span>
+</div>
+</nav>
+<!-- Asymmetrical Layout Container -->
+<div class="flex-1 overflow-y-auto p-4 md:p-margin-desktop">
+<header class="mb-12 max-w-4xl">
+<div class="flex items-center gap-2 text-secondary font-mono-label text-mono-label mb-2 uppercase tracking-widest">
+<span>Workspace</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-medium">Acme Corp Audit</span>
+</div>
+<h1 class="font-display text-display text-on-surface leading-tight mb-4">Organic Evidence Synthesis</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl">Trace requirements through unstructured evidence snippets to form definitive compliance decisions.</p>
+</header>
+<div class="flex flex-col lg:flex-row gap-8 lg:gap-16 relative">
+<!-- Left Column: Evidence Canvas (65%) -->
+<div class="w-full lg:w-[65%] relative min-h-[600px]">
+<!-- Floating Requirement Node -->
+<div class="absolute top-0 left-4 z-20 glass-panel p-6 w-80 rounded-2xl border border-primary/20 organic-shadow transform -rotate-1 hover:rotate-0 transition-transform duration-500">
+<div class="flex items-center gap-2 mb-3">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider">Requirement 4.1.a</span>
+</div>
+<h3 class="font-h3 text-h3 text-on-surface mb-2">Data Residency Constraints</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Vendor must ensure all PII is stored and processed exclusively within EU jurisdictions.</p>
+</div>
+<!-- Connector Lines (SVG) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-10" style="min-height: 600px;">
+<path d="M 150 150 C 150 300, 300 200, 350 350" fill="none" stroke="#e5e5e5" stroke-dasharray="4 4" stroke-width="2"></path>
+<path d="M 350 450 C 350 550, 500 500, 600 550" fill="none" stroke="#0f62fe" stroke-width="2"></path>
+</svg>
+<!-- Layered Evidence Snippet 1 -->
+<div class="absolute top-40 left-32 z-30 bg-surface border border-outline-variant/50 p-5 rounded-lg w-96 organic-shadow transform rotate-2 hover:z-50 hover:scale-105 transition-all duration-300">
+<div class="flex justify-between items-start mb-3 border-b border-outline-variant/30 pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">description</span>
+<span class="font-mono-label text-mono-label text-secondary">MSA_Addendum_v2.pdf</span>
+</div>
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] font-mono-label text-secondary">Pg 42</span>
+</div>
+<div class="font-mono-label text-sm text-on-surface leading-relaxed bg-surface-container-low p-3 rounded border border-outline-variant/20">
+                                "...data center facilities located in Frankfurt, Germany, shall serve as the primary processing node for all European client accounts..."
+                            </div>
+<div class="mt-3 flex justify-end">
+<button class="text-primary font-label-sm text-label-sm hover:underline">View Source</button>
+</div>
+</div>
+<!-- Layered Evidence Snippet 2 -->
+<div class="absolute top-80 left-10 z-20 glass-panel p-5 rounded-xl w-80 organic-shadow transform -rotate-3 hover:z-50 hover:scale-105 transition-all duration-300 border-l-4 border-l-tertiary-container">
+<div class="flex justify-between items-start mb-3 border-b border-outline-variant/30 pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">mail</span>
+<span class="font-mono-label text-mono-label text-secondary">Vendor Comm Thread</span>
+</div>
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-[10px] font-mono-label text-secondary">Oct 12</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant italic">
+                                "While primary DBs are in Frankfurt, failover backups occasionally sync to US-East-1 during maintenance windows. We are working on a fix."
+                            </div>
+<div class="mt-3 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary-container"></span>
+<span class="font-label-sm text-label-sm text-tertiary-container">Flagged for Review</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Compliance Findings (35%) - Vertically Offset -->
+<div class="w-full lg:w-[35%] lg:mt-32 space-y-8 relative z-40">
+<!-- Synthesis Card -->
+<div class="bg-surface border border-outline-variant p-6 rounded-[2rem] organic-shadow relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
+<h3 class="font-h2 text-h2 text-on-surface mb-6 border-b border-outline-variant/50 pb-4">Synthesis Decision</h3>
+<div class="space-y-6">
+<div>
+<div class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mb-2">Status</div>
+<div class="flex items-center gap-3">
+<div class="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1.5 rounded-full font-label-md text-label-md flex items-center gap-2 border border-tertiary-container/20">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+                                            Partial Compliance
+                                        </div>
+</div>
+</div>
+<div>
+<div class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mb-2">Analyst Note</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                        Primary residency constraint met via Frankfurt DC. However, discovery of US-East-1 failover violates strict EU containment. Requires remediation plan before approval.
+                                    </p>
+</div>
+<div class="pt-4 border-t border-outline-variant/50">
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-3 px-4 rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+                                        Log Finding &amp; Request Remediation
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Supporting Meta -->
+<div class="glass-panel p-5 rounded-2xl border border-outline-variant/30 backdrop-blur-md">
+<div class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mb-4 border-b border-outline-variant/30 pb-2">Confidence Score</div>
+<div class="flex items-end gap-4">
+<div class="text-4xl font-display font-light text-on-surface">82<span class="text-xl text-secondary">%</span></div>
+<div class="flex-1 pb-1">
+<div class="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 82%;"></div>
+</div>
+</div>
+</div>
+<div class="mt-4 flex gap-2">
+<span class="px-2 py-1 bg-surface-container-high rounded text-[11px] font-mono-label text-secondary">2 Sources</span>
+<span class="px-2 py-1 bg-surface-container-high rounded text-[11px] font-mono-label text-secondary">High Quality</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
