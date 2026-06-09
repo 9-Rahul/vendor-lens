@@ -1,6 +1,6 @@
 "use client";
 
-import { LuShield, LuUser, LuPlus, LuLayoutDashboard, LuMap, LuLightbulb, LuArchive, LuSettings, LuHelpCircle } from "react-icons/lu";
+import { LuShield, LuUser, LuPlus, LuLayoutDashboard, LuMap, LuLightbulb, LuArchive, LuSettings, LuCircleHelp } from "react-icons/lu";
 
 const NAV_ITEMS = [
   { icon: LuLayoutDashboard, label: "Dashboard",  href: "#" },
@@ -83,7 +83,7 @@ export function Sidebar() {
                      text-[var(--color-secondary)] hover:text-[var(--color-on-surface)]
                      hover:bg-[var(--color-surface-container-high)] transition-all duration-200"
         >
-          <LuHelpCircle className="w-4 h-4" strokeWidth={2} />
+          <LuCircleHelp className="w-4 h-4" strokeWidth={2} />
           Help Center
         </a>
       </div>
